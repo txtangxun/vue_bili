@@ -5,10 +5,16 @@ import login from "@/views/Login.vue"
 import edit from "@/views/edit.vue"
 import userinfo from "@/views/userinfo.vue"
 import home from "@/views/Home.vue"
+import article from "@/views/Article.vue"
 Vue.use(VueRouter)
 const routes = [{
         path: '/',
-        component: home
+        component: home,
+        keepactive: true
+    },
+    {
+        path: '/article/:id',
+        component: article
     },
     {
         path: '/register',

@@ -4,7 +4,7 @@
     <van-tabs v-model="active" sticky>
       <van-tab v-for="(item,index) in category" :title="item.title" :key="index">
         <div class="detailparent">
-          <detail class="detailitem" :detailitem="detailitem" v-for="(detailitem,detailindex) in item.list" :key="detailindex"/>
+          <cover class="detailitem" :detailitem="detailitem" v-for="(detailitem,detailindex) in item.list" :key="detailindex"/>
         </div>
       </van-tab>
     </van-tabs>
@@ -14,7 +14,7 @@
 
 <script>
 import NavBar from "@/components/common/NavBar.vue"
-import Detail from "@/views/Detail.vue"
+import cover from "@/views/Cover.vue"
 export default {
     data(){
       return{
@@ -22,11 +22,10 @@ export default {
           active:0,
           page:0,
           pagesize:10,
-
       }
     },
     components:{
-        NavBar,Detail
+        NavBar,cover
     },
     methods:{
         async selectCategory(){
