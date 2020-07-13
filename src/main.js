@@ -5,6 +5,7 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 import http from '../http.js'
 import { Toast } from 'vant';
+import "../src/assets/style.css"
 
 
 Vue.prototype.$msg = Toast;

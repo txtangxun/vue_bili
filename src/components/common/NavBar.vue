@@ -8,7 +8,8 @@
           <div class="ser">请输入内容</div>
       </div>
       <div>
-          <img src="@/assets/default_img.jpg"/>
+          <img :src="imgUrl" @click="$router.push('/edit')" v-if="imgUrl"/> 
+          <img src="@/assets/default_img.jpg" v-else/> 
           <div>下载APP</div>
       </div>
   </div>
@@ -16,7 +17,22 @@
 
 <script>
 export default {
-
+    data(){
+        return{
+            imgUrl:""
+        }
+    },
+    methods:{
+        async NavInit(){
+            if(localStorage.getItem('token')){
+                const res = await this.$http.get("/user/"+localStorage.getItem('id'))
+                this.imgUrl = res.data[0].user_img
+            }
+        }
+    },
+    mounted(){
+        this.NavInit()
+    }
 }
 </script>
 
@@ -31,7 +47,8 @@ export default {
         align-items: center;
         width:27.778vw;
         img {
-            width:100%
+            width:100%;
+            height:80%
         }
     }
     div:nth-child(2){
